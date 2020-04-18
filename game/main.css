@@ -1,0 +1,138 @@
+*{
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+    background-color:#1b1b1b;
+    font-family: monospace;
+}
+
+.control-btn{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.control-btn button{
+    background-color: red;
+    color: #ddd;
+    border: none;
+    padding: 15px 30px;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: capitalize;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    
+}
+/* main container */
+.row{
+    width: 1080px;
+    margin: 20px auto;
+}
+
+
+
+/* info container */
+.container-info{
+    overflow: hidden;
+    background-color: #212121;
+    border: 1px solid #2c2c2c;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: capitalize;
+    margin: 0 5px;
+    
+}
+.name{
+    float: left;
+    width: 50%;
+
+}
+.tries{
+    float: right;
+    width: 50%;
+    text-align: right;
+}
+/* info container */
+
+
+/* game container */
+
+.game-container{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+   
+}
+.game-container .game-block{
+    width: calc((100% / 5) - 10px);
+    height: 170px;
+    margin: 10px 5px 0;
+    cursor: pointer;
+    position: relative;
+    transition: all .5s;
+    transform-style: preserve-3d;
+    
+    
+}
+.game-container.no-clicking{
+    pointer-events: none;
+}
+.game-container .game-block.flipp,
+.game-container .game-block.match{
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+
+
+.game-container .game-block .front{
+    background-color: #212121;
+    line-height: 170px;
+
+}
+.game-container .game-block .front::after{
+    content: "!";
+    font-size: 50px;
+    color: rgba(255, 0, 0, 0.384);
+    font-weight: bold;
+}
+.game-container .game-block .back{
+    transform: rotateY(180deg);
+    background-color: #444;
+    height: 100%;
+}
+.game-container .game-block .back img{
+    width: 100%;
+    height: 100%;
+}
+.game-container .game-block .box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    border: 1px solid #2c2c2c;
+    transition: all .5s;
+    
+}
+
+.game-container .game-block .box:hover{
+    box-shadow: 0 0 5px #eee;
+}
